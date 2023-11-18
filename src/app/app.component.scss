@@ -1,0 +1,39 @@
+.u-sidebar-menu {
+  height: calc(100vh - 64px);
+}
+.u-sidenav {
+  width: 250px;
+}
+
+.u-topbar-spacer {
+  flex: 1 1 auto;
+}
+
+.u-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.u-sidenav-container {
+  flex: 1;
+  height: calc(100vh - 64px);
+}
+
+.u-is-mobile .u-sidenav-container {
+  flex: 1 0 auto;
+}
+
+.mat-expansion-panel-header-title div, .mat-list-item div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mat-drawer-content.mat-sidenav-content {
+  padding: 16px;
+}

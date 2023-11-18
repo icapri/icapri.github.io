@@ -1,4 +1,128 @@
-<div style="width: 100%; height: 100vh">
-  <u-topbar></u-topbar>
-  <u-sidebar></u-sidebar>
+<div class="u-container"
+[class.u-is-mobile]="mobileQuery.matches">
+  <mat-toolbar class="u-topbar">
+    <div class="u-icon-container" (click)="snav.toggle()">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px"
+        viewBox="0 0 104.000000 107.000000" preserveAspectRatio="xMidYMid meet">
+  
+        <g transform="translate(0.000000,107.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+          <path
+            d="M303 872 l-203 -116 0 -236 0 -235 205 -117 c113 -65 210 -118 215
+  -118 5 0 102 53 215 117 l205 118 0 236 0 236 -205 117 c-113 64 -211 116
+  -218 115 -6 0 -103 -53 -214 -117z m369 -47 c73 -42 137 -80 141 -84 4 -4 -12
+  -18 -35 -30 l-43 -23 -107 62 -107 61 -110 -61 -111 -62 -40 23 c-22 13 -37
+  26 -33 30 22 21 290 168 300 164 7 -2 72 -38 145 -80z m-402 -328 l5 -128 100
+  -57 100 -58 3 -51 3 -52 -150 86 -151 85 0 175 0 174 43 -23 42 -23 5 -128z
+  m590 -1 l0 -174 -143 -81 c-79 -45 -147 -81 -151 -81 -4 0 -6 21 -4 47 l3 48
+  100 57 100 58 5 127 5 127 40 23 c22 12 41 23 43 23 1 0 2 -78 2 -174z"
+          />
+        </g>
+      </svg>
+    </div>
+    <span style="padding-left: 8px;">Utilitates v3.1.1</span>
+    <span class="u-topbar-spacer"></span>
+    <div class="u-icon-container">
+      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+      width="32px" height="32px" viewBox="0 0 225.000000 225.000000"
+      preserveAspectRatio="xMidYMid meet">
+  
+      <g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)" stroke="none">
+      <path d="M975 2239 c-229 -29 -448 -135 -621 -301 -110 -106 -172 -189 -234
+      -313 -177 -358 -153 -779 64 -1115 64 -99 214 -251 312 -316 463 -308 1062
+      -241 1444 162 259 273 362 642 280 1014 -48 222 -151 402 -322 566 -250 239
+      -575 346 -923 303z m394 -175 c335 -85 608 -359 697 -699 22 -85 26 -121 26
+      -240 0 -119 -4 -155 -26 -240 -89 -342 -359 -612 -701 -701 -85 -22 -122 -26
+      -240 -26 -118 -1 -155 3 -235 25 -356 93 -614 352 -707 707 -21 79 -25 118
+      -25 235 -1 120 3 155 26 240 101 384 424 670 818 725 95 13 259 2 367 -26z" />
+      <path d="M990 1929 c-343 -61 -614 -336 -669 -679 -71 -437 237 -859 679 -929
+      252 -41 522 49 704 234 180 182 266 447 225 695 -51 318 -278 572 -589 660
+      -87 24 -265 34 -350 19z m-124 -274 c23 -14 52 -38 64 -54 20 -30 21 -30 57
+      -14 47 19 291 16 316 -5 14 -12 21 -8 52 26 45 50 103 81 116 61 17 -26 22
+      -84 13 -130 -9 -41 -8 -50 12 -75 31 -39 44 -99 45 -210 0 -84 -3 -103 -26
+      -150 -38 -78 -115 -133 -213 -155 l-50 -10 17 -32 c12 -25 17 -68 19 -184 l4
+      -153 -151 0 -151 0 0 74 0 74 -43 -5 c-55 -7 -118 11 -157 43 -17 14 -48 56
+      -69 93 -22 36 -51 77 -65 90 -33 31 -33 41 -1 41 41 0 80 -26 118 -78 19 -27
+      50 -56 70 -65 36 -17 114 -23 132 -9 6 4 18 30 26 59 l17 51 -45 12 c-104 26
+      -183 86 -220 168 -24 54 -24 230 0 294 10 25 24 52 32 58 10 8 12 29 8 83 -5
+      67 6 127 23 127 4 0 26 -11 50 -25z" />
+      </g>
+      </svg>
+    </div>
+  </mat-toolbar>
+  <mat-sidenav-container
+    class="u-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 64 : 0"
+  >
+    <mat-sidenav
+      #snav
+      mode="side"
+      [fixedInViewport]="mobileQuery.matches"
+      fixedTopGap="64"
+    >
+      <mat-nav-list>
+        <span *ngFor="let item of menu">
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div fxLayout="row" fxLayoutAlign="space-between center" style="font-weight: 500;">
+                    <div>
+                      <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="24px" height="24px" viewBox="0 0 800.000000 800.000000"
+ preserveAspectRatio="xMidYMid meet">
+
+<g transform="translate(0.000000,800.000000) scale(0.100000,-0.100000)"
+fill="#000000" stroke="none">
+<path d="M0 4000 l0 -4000 4000 0 4000 0 0 4000 0 4000 -4000 0 -4000 0 0
+-4000z m7500 0 l0 -3500 -3500 0 -3500 0 0 3500 0 3500 3500 0 3500 0 0 -3500z"/>
+<path d="M5770 5163 c-354 -35 -642 -159 -840 -362 -102 -105 -170 -215 -216
+-348 -44 -129 -54 -199 -54 -370 0 -245 53 -412 187 -586 142 -185 318 -316
+755 -563 454 -256 563 -341 637 -496 61 -128 77 -252 47 -363 -69 -259 -325
+-387 -709 -354 -370 31 -631 142 -854 362 l-73 71 0 -370 0 -370 73 -41 c401
+-228 1003 -276 1461 -116 161 56 283 125 387 221 113 104 228 306 275 487 23
+86 27 121 27 250 0 288 -69 479 -258 705 -146 175 -327 307 -690 505 -345 187
+-447 256 -556 372 -36 38 -75 90 -87 114 -63 131 -69 295 -14 412 115 247 486
+358 907 272 169 -35 374 -129 496 -227 l59 -48 -2 347 -3 348 -75 37 c-159 79
+-393 119 -673 116 -95 0 -188 -3 -207 -5z"/>
+<path d="M1700 4835 l0 -275 540 0 540 0 0 -1665 0 -1665 295 0 295 0 0 1665
+0 1665 538 2 537 3 3 273 2 272 -1375 0 -1375 0 0 -275z"/>
+</g>
+</svg>
+                    </div>
+                    {{item.name}}
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <span *ngFor="let child of item.children">
+                <mat-list-item [routerLink]="[child.route]">
+                  <div fxLayout="row" fxLayoutAlign="space-between center">
+                    <div>
+                      <svg fill="#000000" width="24px" height="24px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                          <style>
+                            .cls-1 {
+                              fill: none;
+                            }
+                          </style>
+                        </defs>
+                        <path d="M19.6262,29.5256,19.11,27.5935A12.0035,12.0035,0,0,0,25.2312,8.3323l1.5376-1.2788a14.0033,14.0033,0,0,1-7.1426,22.4721Z"/>
+                        <path d="M10,29H8V25.18l.8037-.1607C10.2617,24.728,12,23.6206,12,20V18.6182l-4-2V14.3818l4-2V12c0-5.4673,3.9253-9,10-9h2V6.82l-.8037.1607C21.7383,7.272,20,8.3794,20,12v.3818l4,2v2.2364l-4,2V20C20,25.4673,16.0747,29,10,29Zm0-2c4.9346,0,8-2.6821,8-7V17.3818L21.7642,15.5,18,13.6182V12c0-4.5781,2.3853-6.1924,4-6.76V5c-4.9346,0-8,2.6821-8,7v1.6182L10.2358,15.5,14,17.3818V20c0,4.5781-2.3853,6.1924-4,6.76Z"/>
+                        <path d="M5.2312,24.9465A14.0032,14.0032,0,0,1,12.3779,2.4734l.5161,1.9321A12.0035,12.0035,0,0,0,6.7688,23.6677Z"/>
+                        <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
+                      </svg>
+                    </div>
+                    {{child.name}}
+                  </div>
+                </mat-list-item>
+              </span>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </span>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <h2>I am not implemented yet..</h2>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>
