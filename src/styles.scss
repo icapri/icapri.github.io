@@ -19,3 +19,8 @@ body { margin: 0; }
 .mat-accordion .mat-expansion-panel:first-of-type {
   border-radius: unset !important;
 }
+
+.u-code {
+  background-color: #EEEEEE;
+  font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+}

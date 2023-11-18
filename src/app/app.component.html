@@ -1,7 +1,12 @@
 <div class="u-container"
 [class.u-is-mobile]="mobileQuery.matches">
   <mat-toolbar class="u-topbar">
-    <div class="u-icon-container" (click)="snav.toggle()">
+    <div class="u-icon-container" (click)="sideMenu.toggle()">
+      <svg width="24px" height="24px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none">
+        <path fill="#000000" fill-rule="evenodd" d="M19 4a1 1 0 01-1 1H2a1 1 0 010-2h16a1 1 0 011 1zm0 6a1 1 0 01-1 1H2a1 1 0 110-2h16a1 1 0 011 1zm-1 7a1 1 0 100-2H2a1 1 0 100 2h16z"/>
+      </svg>
+    </div>
+    <div class="u-icon-container">
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="28px" height="28px"
         viewBox="0 0 104.000000 107.000000" preserveAspectRatio="xMidYMid meet">
   
@@ -21,7 +26,7 @@
     </div>
     <span style="padding-left: 8px;">Utilitates v3.1.1</span>
     <span class="u-topbar-spacer"></span>
-    <div class="u-icon-container">
+    <div class="u-icon-container" (click)="goToGitHubRepo()">
       <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
       width="32px" height="32px" viewBox="0 0 225.000000 225.000000"
       preserveAspectRatio="xMidYMid meet">
@@ -54,10 +59,11 @@
     [style.marginTop.px]="mobileQuery.matches ? 64 : 0"
   >
     <mat-sidenav
-      #snav
+      #sideMenu
       mode="side"
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="64"
+      opened
     >
       <mat-nav-list>
         <span *ngFor="let item of menu">
@@ -93,8 +99,8 @@ fill="#000000" stroke="none">
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <span *ngFor="let child of item.children">
-                <mat-list-item [routerLink]="[child.route]">
+              <span *ngFor="let m of item.children">
+                <mat-list-item (click)="clickOnMethod(item, m)">
                   <div fxLayout="row" fxLayoutAlign="space-between center">
                     <div>
                       <svg fill="#000000" width="24px" height="24px" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
@@ -111,7 +117,7 @@ fill="#000000" stroke="none">
                         <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" class="cls-1" width="32" height="32"/>
                       </svg>
                     </div>
-                    {{child.name}}
+                    {{m.name}}
                   </div>
                 </mat-list-item>
               </span>
@@ -120,9 +126,25 @@ fill="#000000" stroke="none">
         </span>
       </mat-nav-list>
     </mat-sidenav>
-    <mat-sidenav-content>
-      <h2>I am not implemented yet..</h2>
+    <mat-sidenav-content *ngIf="selectedMethod && selectedClass; else noSelectedMethodTemplate">
+      <h2>{{selectedClass.name}}</h2>
       <router-outlet></router-outlet>
     </mat-sidenav-content>
+    <ng-template #noSelectedMethodTemplate>
+      <mat-sidenav-content>
+        <h1>Utilitates v3.1.1</h1>
+        <h2>Description</h2>
+        <p>This library contains hundreds of utility methods such as converters, formatters, parsers, validators, etc. necessary for dealing with built-in JavaScript types such as Array, Blob, Date, Map, Number, Object, Set and String. The names of the abstract classes provided by this library are simply the plural form of the afore-mentioned types i. e. Arrays, Blobs, Dates, Maps, Numbers, Objects, Sets and Strings. These abstract classes are only composed of static members (utility methods). The motivation to build this library comes from the fact that often it becomes necessary to install several libraries e. g. one library for validations, another one for dealing with dates, another one for conversions, etc. This sometimes leads to serious performance issues on applications/libraries. utilitates does not depend on other libraries, it has its own implementation of each and every utility provided. This enables the developers of this library to continuously refactor and improve the code inside it.</p>
+        <h2>Installation</h2>
+        <p>Execute <strong class="u-code">npm install utilitates</strong> and then enjoy using it.</p>
+        <h2>Support</h2>
+        <p>Something isn't working as expected in this library? Feel free to <a
+          href="https://github.com/icapri/utilities/issues/new"
+          target="_blank">create a GitHub issue.</a>
+        </p>
+        <h2>Contribution</h2>
+        <p>Please contact us if you would like to contribute to utilitates.</p>
+      </mat-sidenav-content>
+    </ng-template>
   </mat-sidenav-container>
 </div>
